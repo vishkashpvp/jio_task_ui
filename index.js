@@ -1,5 +1,6 @@
 let usermail = document.getElementById("usermail");
 let password = document.getElementById("password");
+const minusOne = -1;
 
 usermail.value = "2@RIL.Com";
 password.value = "123456";
@@ -8,39 +9,29 @@ password.value = "123456";
  * send to home route if successful
  */
 login = () => {
-  if (validMail(usermail.value) && validPassword(password.value)) {
-    console.log("hurray!");
-    localStorageSetItem("mail", usermail.value);
-    localStorageSetItem("password", password.value);
-    localStorageSetItem("isSignedIn", true);
-    window.location.href = "home.html";
-  }
+  user = getUserDetails(usermail.value, password.value);
+  localStorageSetItem("currentUser", JSON.stringify(user));
 };
 
 /**
  * @param mail
- * @returns boolean indicating provided mail satisfies conditions
- */
-validMail = (mail) => {
-  if (!mail.toLowerCase().endsWith("@ril.com")) {
-    window.alert("invalid mail");
-    console.log("invalid mail");
-    return false;
-  }
-  return true;
-};
-
-/**
  * @param password
- * @returns boolean indicating provided password fullfills conditions
+ * @returns user object or else undefined
  */
-validPassword = (password) => {
-  if (password.length < 6) {
-    window.alert("min 6 chars req for password");
-    console.log("min 6 chars req for password");
-    return false;
+getUserDetails = (mail, password) => {
+  users = localStorageGetItem("users");
+  users = JSON.parse(users);
+
+  user = users.find((user) => {
+    return user.mail == mail && user.password == password;
+  });
+
+  if (!user) {
+    console.log("User doesn't exists");
+    window.alert("User doesn't exists");
+    return;
   }
-  return true;
+  return user;
 };
 
 /**
