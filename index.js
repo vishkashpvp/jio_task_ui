@@ -10,7 +10,10 @@ password.value = "123456";
  */
 login = () => {
   user = getUserDetails(usermail.value, password.value);
+  if (!user) return;
   localStorageSetItem("currentUser", JSON.stringify(user));
+  localStorageSetItem("isSignedIn", true);
+  window.location.href = "home.html";
 };
 
 /**
