@@ -60,7 +60,7 @@ getLocalUsers = () => {
 setLocalUser = (user) => {
   let users = getLocalUsers();
   users.push(user);
-  localStorageSetItem("number of users", users.length);
+  localStorageSetItem("usersCount", users.length);
   user = JSON.stringify(user);
   users = JSON.stringify(users);
   localStorageSetItem("currentUser", user);
