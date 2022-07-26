@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+    <form>
+      Username
+      <input
+        id="username"
+        style="height: 25px; font-size: 16px"
+        type="text"
+        name="name"
+      />
+      <br />
+      <div style="margin-top: 6px"></div>
+      Usermail
+      <input
+        id="usermail"
+        style="
+          height: 25px;
+          font-size: 16px;
+          background-color: rgb(189, 189, 189);
+        "
+        type="mail"
+        name="mail"
+        readonly
+      />
+      <br />
+      <div style="margin-top: 6px"></div>
+      Password
+      <input
+        id="password"
+        style="height: 25px; font-size: 16px"
+        type="text"
+        name="password"
+      />
+      <br />
+      <div style="margin-top: 6px"></div>
+
+      <button
+        onclick="updateCurrentUser()"
+        type="button"
+        style="font-size: 20px; margin-top: 8px"
+      >
+        Save
+      </button>
+    </form>
+  </body>
+
+  <script src="./profile.js"></script>
+</html>
