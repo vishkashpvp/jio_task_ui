@@ -23,6 +23,13 @@ login = () => {
  */
 getUserDetails = (mail, password) => {
   users = localStorageGetItem("users");
+
+  if (!users) {
+    console.log("No data available");
+    window.alert("No data available");
+    return;
+  }
+
   users = JSON.parse(users);
 
   user = users.find((user) => {
