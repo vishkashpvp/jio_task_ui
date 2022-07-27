@@ -60,7 +60,8 @@ function setEmployeesDataTable() {
  * @param employee
  */
 function editEmployee(employee) {
-  console.log(employee);
+  localStorageSetItem("currentEmployee", JSON.stringify(employee));
+  window.location.href = "edit-employee.html";
 }
 
 /**
