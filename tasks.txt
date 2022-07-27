@@ -1,0 +1,11 @@
+1. signup   =>  name, mail, password, confirm-password
+
+2. signin   =>  mail, password
+
+3. home (display employees)
+
+4. profile (edit personal info)
+
+4. add-employee =>  name, mail, mobile, technology
+
+5. edit-employee (edit employee)
