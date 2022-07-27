@@ -10,6 +10,7 @@ document.title = "Home - " + currentUser.name;
 document.querySelector("#name_span").textContent = currentUser.name;
 document.querySelector("#mail_span").textContent = currentUser.mail;
 let employees_table = document.getElementById("employees_table");
+const minusOne = -1;
 
 setEmployeesDataTable();
 
@@ -67,8 +68,18 @@ function editEmployee(employee) {
  * @param employee
  */
 function deleteEmployee(employee) {
-  console.log("deletingg...");
-  console.log(employee);
+  let all_employees = getAllEmployees();
+  let index = all_employees.findIndex((temp_employee) => {
+    return (
+      temp_employee.user_mail == currentUser.mail &&
+      temp_employee.mail == employee.mail
+    );
+  });
+  if (index != minusOne) {
+    all_employees.splice(index, 1);
+    updateAllEmployees(all_employees);
+    window.location.reload();
+  }
 }
 
 /**
@@ -84,8 +95,7 @@ function getCurrentUser() {
  * @returns employees of current user from local storage
  */
 function getCurrentUserEmployees() {
-  let employees = localStorageGetItem("employees");
-  employees = employees ? JSON.parse(employees) : [];
+  employees = getAllEmployees();
   currentUserEmployees = employees.filter((employee) => {
     return employee.user_mail === getCurrentUser().mail;
   });
@@ -95,6 +105,23 @@ function getCurrentUserEmployees() {
   );
   localStorageSetItem("currentUserEmployeesCount", currentUserEmployees.length);
   return currentUserEmployees;
+}
+
+/**
+ * @returns employees array from local storage of all users
+ */
+function getAllEmployees() {
+  let employees = localStorageGetItem("employees");
+  return employees ? JSON.parse(employees) : [];
+}
+
+/**
+ * replaces employees array with new array
+ * @param employees
+ */
+function updateAllEmployees(employees) {
+  localStorageSetItem("employeesCount", employees.length);
+  localStorageSetItem("employees", JSON.stringify(employees));
 }
 
 /**
