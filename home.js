@@ -3,12 +3,11 @@
  */
 isValidAttempt();
 
-currentUser = getCurrentUser();
-currentUserEmployees = getCurrentUserEmployees();
+const currentUser = getCurrentUser();
+const currentUserEmployees = getCurrentUserEmployees();
 
 document.title = "Home - " + currentUser.name;
 document.querySelector("#name_span").textContent = currentUser.name;
-document.querySelector("#mail_span").textContent = currentUser.mail;
 let employees_table = document.getElementById("employees_table");
 const minusOne = -1;
 
@@ -35,12 +34,12 @@ function setEmployeesDataTable() {
     tech.align = "center";
     action.align = "center";
 
-    edit_button = document.createElement("button");
+    let edit_button = document.createElement("button");
     edit_button.innerHTML = "edit";
     edit_button.onclick = function () {
       editEmployee(employee);
     };
-    delete_button = document.createElement("button");
+    let delete_button = document.createElement("button");
     delete_button.innerHTML = "delete";
     delete_button.onclick = function () {
       deleteEmployee(employee);
@@ -72,11 +71,12 @@ function deleteEmployee(employee) {
   let all_employees = getAllEmployees();
   let index = all_employees.findIndex((temp_employee) => {
     return (
-      temp_employee.user_mail == currentUser.mail &&
-      temp_employee.mail == employee.mail
+      temp_employee.user_mail.toLowerCase() ===
+        currentUser.mail.toLowerCase() &&
+      temp_employee.mail.toLowerCase() === employee.mail.toLowerCase()
     );
   });
-  if (index != minusOne) {
+  if (index !== minusOne) {
     all_employees.splice(index, 1);
     updateAllEmployees(all_employees);
     window.location.reload();
@@ -87,17 +87,15 @@ function deleteEmployee(employee) {
  * @returns current user object from local storage
  */
 function getCurrentUser() {
-  currentUser = localStorageGetItem("currentUser");
-  currentUser = JSON.parse(currentUser);
-  return currentUser;
+  return JSON.parse(localStorageGetItem("currentUser"));
 }
 
 /**
  * @returns employees of current user from local storage
  */
 function getCurrentUserEmployees() {
-  employees = getAllEmployees();
-  currentUserEmployees = employees.filter((employee) => {
+  let employees = getAllEmployees();
+  let currentUserEmployees = employees.filter((employee) => {
     return employee.user_mail === getCurrentUser().mail;
   });
   localStorageSetItem(

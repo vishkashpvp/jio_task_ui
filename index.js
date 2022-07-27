@@ -1,15 +1,10 @@
 let usermail = document.getElementById("usermail");
 let password = document.getElementById("password");
-const minusOne = -1;
-
-usermail.value = "2@RIL.Com";
-password.value = "123456";
-
 /**
  * send to home route if successful
  */
 login = () => {
-  user = getUserDetails(usermail.value, password.value);
+  const user = getUserDetails(usermail.value, password.value);
   if (!user) return;
   localStorageSetItem("currentUser", JSON.stringify(user));
   localStorageSetItem("isSignedIn", true);
@@ -22,7 +17,7 @@ login = () => {
  * @returns user object or else undefined
  */
 getUserDetails = (mail, password) => {
-  users = localStorageGetItem("users");
+  let users = localStorageGetItem("users");
 
   if (!users) {
     console.log("No data available");
@@ -32,8 +27,8 @@ getUserDetails = (mail, password) => {
 
   users = JSON.parse(users);
 
-  user = users.find((user) => {
-    return user.mail == mail && user.password == password;
+  const user = users.find((user) => {
+    return user.mail.toLowerCase() === mail.toLowerCase() && user.password === password;
   });
 
   if (!user) {

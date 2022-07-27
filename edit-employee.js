@@ -1,9 +1,9 @@
 const current_employee = getCurrentEmployee();
 
-emp_name = document.getElementById("employee_name");
-emp_mail = document.getElementById("employee_mail");
-emp_mobile = document.getElementById("employee_mobile");
-emp_tech = document.getElementById("tech_select");
+let emp_name = document.getElementById("employee_name");
+let emp_mail = document.getElementById("employee_mail");
+let emp_mobile = document.getElementById("employee_mobile");
+let emp_tech = document.getElementById("tech_select");
 const minusOne = -1;
 
 emp_name.value = current_employee.name;
@@ -35,7 +35,7 @@ updateCurrentEmployee = () => {
       return JSON.stringify(temp_employee) === JSON.stringify(current_employee);
     });
 
-    if (index != minusOne) {
+    if (index !== minusOne) {
       all_employees.splice(index, 1, updated_employee);
       updateAllEmployees(all_employees);
       localStorageRemoveItem("currentEmployee");
@@ -65,14 +65,11 @@ getAllEmployees = () => {
  * @returns boolean indicating satisfying condtions
  */
 validEmployeeDetails = () => {
-  if (
+  return (
     validEmployeeName(emp_name.value) &&
     validEmployeeMail(emp_mail.value) &&
     validEmployeeMobile(emp_mobile.value)
-  ) {
-    return true;
-  }
-  return false;
+  );
 };
 
 /**

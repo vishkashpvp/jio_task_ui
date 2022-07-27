@@ -1,10 +1,10 @@
-currentUser = getCurrentUser();
+const currentUser = getCurrentUser();
 
 document.title = "Profile - " + currentUser.name;
 
-username = document.getElementById("username");
-usermail = document.getElementById("usermail");
-password = document.getElementById("password");
+let username = document.getElementById("username");
+let usermail = document.getElementById("usermail");
+let password = document.getElementById("password");
 
 username.value = currentUser.name;
 usermail.value = currentUser.mail;
@@ -20,7 +20,7 @@ updateCurrentUser = () => {
   if (!validSaveDetails()) {
     console.log("invalid details provided");
   } else {
-    updated_user = Object.create(user);
+    let updated_user = Object.create(user);
     updated_user.name = username.value;
     updated_user.mail = usermail.value;
     updated_user.password = password.value;
@@ -35,9 +35,7 @@ updateCurrentUser = () => {
  * @returns current user object from local storage
  */
 function getCurrentUser() {
-  currentUser = localStorageGetItem("currentUser");
-  currentUser = JSON.parse(currentUser);
-  return currentUser;
+  return JSON.parse(localStorageGetItem("currentUser"));
 }
 
 /**
@@ -49,14 +47,14 @@ getLocalUsers = () => {
 };
 
 /**
- * @param user
  * updates user to users array in local storage
+ * @param current_user
  */
 updateLocalUser = (current_user) => {
   let users = getLocalUsers();
 
-  local_user = users.find((user) => {
-    return user.mail == current_user.mail;
+  let local_user = users.find((user) => {
+    return user.mail.toLowerCase() === current_user.mail.toLowerCase();
   });
 
   local_user.name = current_user.name;
@@ -82,7 +80,6 @@ localStorageSetItem = (key, value) => {
  * @returns value of local storage item with the key
  */
 function localStorageGetItem(key) {
-  console.log(key, localStorage.getItem(key));
   return localStorage.getItem(key);
 }
 
@@ -90,10 +87,7 @@ function localStorageGetItem(key) {
  * @returns boolean indicating provided details all satifies conditions
  */
 validSaveDetails = () => {
-  if (validName(username.value) && validPassword(password.value)) {
-    return true;
-  }
-  return false;
+  return validName(username.value) && validPassword(password.value);
 };
 
 /**

@@ -1,9 +1,9 @@
 document.title = "Add New Employee";
 
-employee_name = document.getElementById("employee_name");
-employee_mobile = document.getElementById("employee_mobile");
-employee_mail = document.getElementById("employee_mail");
-employee_tech = document.getElementById("tech-select");
+let employee_name = document.getElementById("employee_name");
+let employee_mobile = document.getElementById("employee_mobile");
+let employee_mail = document.getElementById("employee_mail");
+let employee_tech = document.getElementById("tech-select");
 const minusOne = -1;
 
 employee_name.value = "amas";
@@ -21,7 +21,7 @@ addEmployee = () => {
   if (!validEmployeeDetails()) {
     console.log("invalid employee details");
   } else {
-    new_mail = employee_mail.value;
+    let new_mail = employee_mail.value;
 
     let mail_index = getCurrentUserEmployees().findIndex((employee) => {
       return employee.mail.toLowerCase() === new_mail.toLowerCase();
@@ -60,10 +60,11 @@ getAllEmployees = () => {
  */
 getCurrentUserEmployees = () => {
   let employees = getAllEmployees();
-  currentUserEmployees = employees.filter((employee) => {
-    return employee.user_mail === getCurrentUser().mail;
+  return employees.filter((employee) => {
+    return (
+      employee.user_mail.toLowerCase() === getCurrentUser().mail.toLowerCase()
+    );
   });
-  return currentUserEmployees;
 };
 
 /**
@@ -84,14 +85,11 @@ setEmployee = (employee) => {
  * @returns boolean indicating satisfying condtions
  */
 validEmployeeDetails = () => {
-  if (
+  return (
     validEmployeeName(employee_name.value) &&
     validEmployeeMail(employee_mail.value) &&
     validEmployeeMobile(employee_mobile.value)
-  ) {
-    return true;
-  }
-  return false;
+  );
 };
 
 /**

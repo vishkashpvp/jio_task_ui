@@ -1,7 +1,7 @@
-username = document.getElementById("username");
-usermail = document.getElementById("usermail");
-password = document.getElementById("password");
-confirm_password = document.getElementById("confirm-password");
+let username = document.getElementById("username");
+let usermail = document.getElementById("usermail");
+let password = document.getElementById("password");
+let confirm_password = document.getElementById("confirm-password");
 const minusOne = -1;
 
 username.value = "Vish";
@@ -19,10 +19,10 @@ const user = {
  * route to home if succesful signup else show what's wrong
  */
 signUp = () => {
-  if (!vaildSignUpDetails()) {
+  if (!validSignUpDetails()) {
     console.log("OHH GOD! invalid signup details");
   } else {
-    new_mail = usermail.value;
+    let new_mail = usermail.value;
     let mail_index = getLocalUsers().findIndex((user) => {
       return user.mail.toLowerCase() === new_mail.toLowerCase();
     });
@@ -70,16 +70,13 @@ setLocalUser = (user) => {
 /**
  * @returns boolean indicating provided deatails all satifies conditions
  */
-vaildSignUpDetails = () => {
-  if (
+validSignUpDetails = () => {
+  return (
     validName(username.value) &&
     validMail(usermail.value) &&
     validPassword(password.value) &&
     passwordConfirmed(password.value, confirm_password.value)
-  ) {
-    return true;
-  }
-  return false;
+  );
 };
 
 /**
@@ -93,7 +90,7 @@ validName = (username) => {
     return false;
   }
   if (username.length < 4) {
-    window.alert("Username should be atleast 4 characters long");
+    window.alert("Username should be at least 4 characters long");
     return false;
   }
   return true;
