@@ -36,11 +36,14 @@ function setEmployeesDataTable() {
 
     let edit_button = document.createElement("button");
     edit_button.innerHTML = "edit";
+    edit_button.style.marginRight = "10px";
+    edit_button.className = "btn btn-outline-primary";
     edit_button.onclick = function () {
       editEmployee(employee);
     };
     let delete_button = document.createElement("button");
     delete_button.innerHTML = "delete";
+    delete_button.className = "btn btn-outline-danger";
     delete_button.onclick = function () {
       deleteEmployee(employee);
     };

@@ -1,7 +1,7 @@
 let username = document.getElementById("username");
 let usermail = document.getElementById("usermail");
 let password = document.getElementById("password");
-let confirm_password = document.getElementById("confirm-password");
+let confirm_password = document.getElementById("c_password");
 const minusOne = -1;
 
 username.value = "Vish";
