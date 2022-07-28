@@ -156,23 +156,6 @@ isEmpty = (value) => {
 };
 
 /**
- * @param key
- * @param value
- * sets value in local storage with provided key
- */
-localStorageSetItem = (key, value) => {
-  localStorage.setItem(key, value);
-};
-
-/**
- * @param key
- * @returns value of local storage item with the key
- */
-function localStorageGetItem(key) {
-  return localStorage.getItem(key);
-}
-
-/**
  * @returns current user object from local storage
  */
 const getCurrentUser = () => {

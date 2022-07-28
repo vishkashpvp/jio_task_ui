@@ -124,32 +124,6 @@ function updateAllEmployees(employees) {
 }
 
 /**
- *
- * @param key
- * @returns value of local storage item with the key
- */
-function localStorageGetItem(key) {
-  return localStorage.getItem(key);
-}
-
-/**
- * sets value in local storage with provided key
- * @param key
- * @param value
- */
-function localStorageSetItem(key, value) {
-  localStorage.setItem(key, value);
-}
-
-/**
- * removes given key in the local storage
- * @param key
- */
-function localStorageRemoveItem(key) {
-  localStorage.removeItem(key);
-}
-
-/**
  * route back to signin page
  */
 function isValidAttempt() {

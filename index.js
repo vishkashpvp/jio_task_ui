@@ -28,7 +28,10 @@ getUserDetails = (mail, password) => {
   users = JSON.parse(users);
 
   const user = users.find((user) => {
-    return user.mail.toLowerCase() === mail.toLowerCase() && user.password === password;
+    return (
+      user.mail.toLowerCase() === mail.toLowerCase() &&
+      user.password === password
+    );
   });
 
   if (!user) {
@@ -37,21 +40,4 @@ getUserDetails = (mail, password) => {
     return;
   }
   return user;
-};
-
-/**
- * @param key
- * @param value
- * sets value in local storage with provided key
- */
-localStorageSetItem = (key, value) => {
-  localStorage.setItem(key, value);
-};
-
-/**
- * @param key
- * @returns value of local storage item with the key
- */
-localStorageGetItem = (key) => {
-  return localStorage.getItem(key);
 };

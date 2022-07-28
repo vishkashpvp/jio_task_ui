@@ -67,23 +67,6 @@ updateLocalUser = (current_user) => {
 };
 
 /**
- * @param key
- * @param value
- * sets value in local storage with provided key
- */
-localStorageSetItem = (key, value) => {
-  localStorage.setItem(key, value);
-};
-
-/**
- * @param key
- * @returns value of local storage item with the key
- */
-function localStorageGetItem(key) {
-  return localStorage.getItem(key);
-}
-
-/**
  * @returns boolean indicating provided details all satifies conditions
  */
 validSaveDetails = () => {

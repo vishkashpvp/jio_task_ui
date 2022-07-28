@@ -156,20 +156,3 @@ passwordConfirmed = (password, confirm_text) => {
 isEmpty = (value) => {
   return !value || value.length === 0;
 };
-
-/**
- * @param key
- * @param value
- * sets value in local storage with provided key
- */
-localStorageSetItem = (key, value) => {
-  localStorage.setItem(key, value);
-};
-
-/**
- * @param key
- * @returns value of local storage item with the key
- */
-localStorageGetItem = (key) => {
-  return localStorage.getItem(key);
-};

@@ -141,27 +141,3 @@ isEmpty = (value) => {
 function getCurrentEmployee() {
   return JSON.parse(localStorageGetItem("currentEmployee"));
 }
-
-/**
- * @param key
- * @returns value from local storage with given key
- */
-function localStorageGetItem(key) {
-  return localStorage.getItem(key);
-}
-
-/**
- * @param key
- * @param value
- */
-function localStorageSetItem(key, value) {
-  localStorage.setItem(key, value);
-}
-
-/**
- * removes item from local storage with given key
- * @param key
- */
-function localStorageRemoveItem(key) {
-  localStorage.removeItem(key);
-}
