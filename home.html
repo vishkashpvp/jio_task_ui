@@ -22,17 +22,23 @@
 
       <ul class="nav mt-3">
         <li class="nav-item">
-          <a class="nav-link" href="./profile.html">PROFILE</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./add-employee.html">ADD EMPLOYEE</a>
+          <button
+            class="btn btn-outline-primary"
+            onclick="location.href= 'profile.html'"
+          >
+            PROFILE
+          </button>
         </li>
         <li class="nav-item">
           <button
-            class="btn btn-outline-danger"
-            style="font-size: 16px; margin-left: 20px"
-            onclick="logout()"
+            class="btn btn-outline-primary ms-3"
+            onclick="location.href='add-employee.html'"
           >
+            ADD EMPLOYEE
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger ms-3" onclick="logout()">
             LOGOUT
           </button>
         </li>
