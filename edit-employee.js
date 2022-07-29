@@ -30,6 +30,20 @@ updateCurrentEmployee = () => {
     updated_employee.tech = emp_tech.value;
     updated_employee.user_mail = current_employee.user_mail;
 
+    let current_employees = getCurrentUserEmployees();
+    let index_mail = current_employees.findIndex((temp_employee) => {
+      return (
+        updated_employee.mail.toLowerCase() ===
+          temp_employee.mail.toLowerCase() &&
+        current_employee.mail.toLowerCase() !== temp_employee.mail.toLowerCase()
+      );
+    });
+
+    if (index_mail !== minusOne) {
+      window.alert("Employee already exists");
+      return;
+    }
+
     let all_employees = getAllEmployees();
     let index = all_employees.findIndex((temp_employee) => {
       return JSON.stringify(temp_employee) === JSON.stringify(current_employee);
@@ -56,10 +70,21 @@ function updateAllEmployees(employees) {
 /**
  * @returns employees array from local storage of all users
  */
-getAllEmployees = () => {
+function getAllEmployees() {
   let employees = localStorageGetItem("employees");
   return employees ? JSON.parse(employees) : [];
-};
+}
+
+/**
+ * @returns employees of current user from local storage
+ */
+function getCurrentUserEmployees() {
+  let employees = getAllEmployees();
+  let currentUserEmployees = employees.filter((employee) => {
+    return employee.user_mail === getCurrentUser().mail;
+  });
+  return currentUserEmployees;
+}
 
 /**
  * @returns boolean indicating satisfying condtions
@@ -77,4 +102,11 @@ validEmployeeDetails = () => {
  */
 function getCurrentEmployee() {
   return JSON.parse(localStorageGetItem("currentEmployee"));
+}
+
+/**
+ * @returns current user object from local storage
+ */
+function getCurrentUser() {
+  return JSON.parse(localStorageGetItem("currentUser"));
 }
