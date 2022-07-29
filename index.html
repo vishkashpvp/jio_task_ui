@@ -15,45 +15,47 @@
   </head>
 
   <body>
-    <div class="container" id="my-main-container">
-      <div class="row">
-        <div class="col-6 offset-md-3">
-          <div class="card mt-3">
-            <div class="card-header">LOGIN</div>
-            <div class="card-body">
-              <form>
-                <div class="form-group mb-3">
-                  <label class="form-label">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="usermail"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Enter password"
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="card-footer">
-              <button type="submit" onclick="login()" class="btn btn-primary">
-                Submit
-              </button>
+    <div class="d-flex align-items-center min-vh-100">
+      <div class="container" id="my-main-container">
+        <div class="row">
+          <div class="col-6 offset-md-3">
+            <div class="card mt-3">
+              <div class="card-header">LOGIN</div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="usermail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Enter password"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button type="submit" onclick="login()" class="btn btn-primary">
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <div style="margin-top: 16px; text-align: center">
+          <a href="./sign-up.html">new here? SIGN UP</a>
+        </div>
       </div>
-    </div>
-    <div style="margin-top: 16px; text-align: center">
-      <a href="./sign-up.html">new here? SIGN UP</a>
     </div>
   </body>
 

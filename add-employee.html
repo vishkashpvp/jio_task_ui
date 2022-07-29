@@ -15,70 +15,72 @@
   </head>
 
   <body style="text-align: center">
-    <div class="container" id="signup-container">
-      <div class="row">
-        <div class="col-6 offset-md-3">
-          <div class="card mt-3">
-            <div class="card-header">ADD NEW EMPLOYEE</div>
+    <div class="d-flex align-items-center min-vh-100">
+      <div class="container" id="signup-container">
+        <div class="row">
+          <div class="col-6 offset-md-3">
+            <div class="card mt-3">
+              <div class="card-header">ADD NEW EMPLOYEE</div>
 
-            <div class="card-body">
-              <form>
-                <div class="form-group mb-3">
-                  <label class="form-label">Employee Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="employee_name"
-                    placeholder="Enter employee name"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="employee_mail"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter employee email"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Employee Mobile</label>
-                  <input
-                    id="employee_mobile"
-                    type="tel"
-                    class="form-control"
-                    id="employee_mobile"
-                    placeholder="Enter employee mobile"
-                    name="employee_mobile"
-                    pattern="[1-9]{9}[0-9]{1}"
-                    maxlength="10"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Technology</label>
-                  <select
-                    name="tech"
-                    id="tech-select"
-                    class="form-select form-select mb-3"
-                    aria-label=".form-select-lg example"
-                  >
-                    <option value="Android">Android</option>
-                    <option value="Angular">Angular</option>
-                    <option value="Node.js">Node.js</option>
-                  </select>
-                </div>
-              </form>
-            </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Employee Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="employee_name"
+                      placeholder="Enter employee name"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="employee_mail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter employee email"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Employee Mobile</label>
+                    <input
+                      id="employee_mobile"
+                      type="tel"
+                      class="form-control"
+                      id="employee_mobile"
+                      placeholder="Enter employee mobile"
+                      name="employee_mobile"
+                      pattern="[1-9]{9}[0-9]{1}"
+                      maxlength="10"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Technology</label>
+                    <select
+                      name="tech"
+                      id="tech-select"
+                      class="form-select form-select mb-3"
+                      aria-label=".form-select-lg example"
+                    >
+                      <option value="Android">Android</option>
+                      <option value="Angular">Angular</option>
+                      <option value="Node.js">Node.js</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
 
-            <div class="card-footer">
-              <button
-                type="submit"
-                onclick="addEmployee()"
-                class="btn btn-primary"
-              >
-                ADD
-              </button>
+              <div class="card-footer">
+                <button
+                  type="submit"
+                  onclick="addEmployee()"
+                  class="btn btn-primary"
+                >
+                  ADD
+                </button>
+              </div>
             </div>
           </div>
         </div>

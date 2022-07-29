@@ -15,65 +15,72 @@
   </head>
 
   <body style="text-align: center">
-    <div class="container" id="signup-container">
-      <div class="row">
-        <div class="col-6 offset-md-3">
-          <div class="card mt-3">
-            <div class="card-header">CREATE ACCOUNT</div>
+    <div class="d-flex align-items-center min-vh-100">
+      <div class="container" id="signup-container">
+        <div class="row">
+          <div class="col-6 offset-md-3">
+            <div class="card mt-3">
+              <div class="card-header">CREATE ACCOUNT</div>
 
-            <div class="card-body">
-              <form>
-                <div class="form-group mb-3">
-                  <label class="form-label">Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="username"
-                    placeholder="Enter name"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="usermail"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Enter password"
-                  />
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Confirm Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="c_password"
-                    placeholder="Confirm password"
-                  />
-                </div>
-              </form>
-            </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      placeholder="Enter name"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="usermail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Enter password"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="c_password"
+                      placeholder="Confirm password"
+                    />
+                  </div>
+                </form>
+              </div>
 
-            <div class="card-footer">
-              <button type="submit" onclick="signUp()" class="btn btn-primary">
-                Sign Up
-              </button>
+              <div class="card-footer">
+                <button
+                  type="submit"
+                  onclick="signUp()"
+                  class="btn btn-primary"
+                >
+                  Sign Up
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <div style="margin-top: 16px; text-align: center">
+          <a href="./index.html">already user ? SIGN-IN</a>
+        </div>
       </div>
-    </div>
-    <div style="margin-top: 16px; text-align: center">
-      <a href="./index.html">already user ? SIGN-IN</a>
     </div>
   </body>
 
