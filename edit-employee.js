@@ -1,5 +1,7 @@
 const current_employee = getCurrentEmployee();
 
+let emp_image_file = document.getElementById("emp-img-file");
+let emp_image = document.getElementById("emp-img");
 let emp_name = document.getElementById("employee_name");
 let emp_mail = document.getElementById("employee_mail");
 let emp_mobile = document.getElementById("employee_mobile");
@@ -10,14 +12,36 @@ emp_name.value = current_employee.name;
 emp_mail.value = current_employee.mail;
 emp_mobile.value = current_employee.mobile;
 emp_tech.value = current_employee.tech;
+emp_image.src = current_employee.image
+  ? current_employee.image
+  : "add-image.png";
 
 const employee = {
   name: String,
   mail: String,
   mobile: Number,
   tech: String,
+  image: String,
   user_mail: String,
 };
+
+function previewImage(imageFile) {
+  const reader = new FileReader();
+
+  reader.addEventListener(
+    "load",
+    () => {
+      emp_image.src = reader.result;
+      let newEmployeeImage = reader.result;
+      localStorageSetItem("tempImg", newEmployeeImage);
+    },
+    false
+  );
+
+  if (imageFile) {
+    reader.readAsDataURL(imageFile);
+  }
+}
 
 updateCurrentEmployee = () => {
   if (!validEmployeeDetails()) {
@@ -28,7 +52,10 @@ updateCurrentEmployee = () => {
     updated_employee.mail = emp_mail.value;
     updated_employee.mobile = emp_mobile.value;
     updated_employee.tech = emp_tech.value;
+    updated_employee.image = localStorageGetItem("tempImg");
     updated_employee.user_mail = current_employee.user_mail;
+
+    localStorageRemoveItem("tempImg");
 
     let current_employees = getCurrentUserEmployees();
     let index_mail = current_employees.findIndex((temp_employee) => {

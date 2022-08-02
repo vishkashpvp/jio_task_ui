@@ -23,12 +23,14 @@ function setEmployeesDataTable() {
   currentUserEmployees.forEach((employee) => {
     let tr = employees_table.insertRow();
     let name = tr.insertCell();
+    let image = tr.insertCell();
     let mail = tr.insertCell();
     let mobile = tr.insertCell();
     let tech = tr.insertCell();
     let action = tr.insertCell();
 
     name.align = "center";
+    image.align = "center";
     mail.align = "center";
     mobile.align = "center";
     tech.align = "center";
@@ -47,6 +49,12 @@ function setEmployeesDataTable() {
     delete_button.onclick = function () {
       deleteEmployee(employee);
     };
+
+    let imxg = document.createElement("img");
+    imxg.style.width = "50px";
+    imxg.style.height = "50px";
+    imxg.src = employee.image ? employee.image : "add-image.png";
+    image.appendChild(imxg);
 
     name.appendChild(document.createTextNode(employee.name));
     mail.appendChild(document.createTextNode(employee.mail));

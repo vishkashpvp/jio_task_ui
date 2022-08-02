@@ -1,5 +1,7 @@
 document.title = "Add New Employee";
 
+let emp_image_file = document.getElementById("emp-img-file");
+let emp_image = document.getElementById("emp-img");
 let employee_name = document.getElementById("employee_name");
 let employee_mobile = document.getElementById("employee_mobile");
 let employee_mail = document.getElementById("employee_mail");
@@ -14,8 +16,27 @@ const employee = {
   mail: String,
   mobile: Number,
   tech: String,
+  image: String,
   user_mail: String,
 };
+
+function previewImage(imageFile) {
+  const reader = new FileReader();
+
+  reader.addEventListener(
+    "load",
+    () => {
+      emp_image.src = reader.result;
+      let newEmployeeImage = reader.result;
+      localStorageSetItem("tempImg", newEmployeeImage);
+    },
+    false
+  );
+
+  if (imageFile) {
+    reader.readAsDataURL(imageFile);
+  }
+}
 
 addEmployee = () => {
   if (!validEmployeeDetails()) {
@@ -39,7 +60,10 @@ addEmployee = () => {
     new_employee.mail = employee_mail.value;
     new_employee.mobile = parseInt(employee_mobile.value);
     new_employee.tech = employee_tech.value;
+    new_employee.image = localStorageGetItem("tempImg");
     new_employee.user_mail = getCurrentUser().mail;
+
+    localStorageRemoveItem("tempImg");
 
     setEmployee(new_employee);
 
